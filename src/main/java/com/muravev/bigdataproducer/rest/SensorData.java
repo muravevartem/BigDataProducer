@@ -1,8 +1,10 @@
 package com.muravev.bigdataproducer.rest;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 public record SensorData(
+        UUID id,
         String number,
         String route,
         double voltage,
@@ -10,7 +12,7 @@ public record SensorData(
         double tempIn,
         double hydraulic,
         double temp,
-        double speed
-
+        double speed,
+        LocalDateTime time
 ) {
 }

@@ -7,6 +7,9 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.util.UUID;
+
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -17,6 +20,7 @@ public class Producer {
     public void produce() {
 
         SensorData data = new SensorData(
+                UUID.randomUUID(),
                 String.valueOf(RandomUtils.nextInt(1, 1000)),
                 String.valueOf(RandomUtils.nextInt(1, 100)),
                 RandomUtils.nextDouble(12., 14.),
@@ -24,7 +28,8 @@ public class Producer {
                 RandomUtils.nextDouble(0., 8.),
                 RandomUtils.nextDouble(2., 8.),
                 RandomUtils.nextDouble(85., 102.),
-                RandomUtils.nextDouble(0., 40.)
+                RandomUtils.nextDouble(0., 40.),
+                LocalDateTime.now()
         );
 
         log.info("Sending data of {}", data.number());

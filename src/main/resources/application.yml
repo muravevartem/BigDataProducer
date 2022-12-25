@@ -1,3 +1,4 @@
+
 spring:
   kafka:
     bootstrap-servers: localhost:9092
@@ -5,4 +6,6 @@ spring:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
       properties:
-        spring.json.value.default.type: com.muravev.bigdataproducer.rest.SensorData
+        spring.json.type.mapping: 'model:com.muravev.bigdataproducer.rest.SensorData'
+server:
+  port: 10002
